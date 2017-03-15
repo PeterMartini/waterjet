@@ -12,6 +12,12 @@ class WaterJet:
         pygame.display.set_caption("Hi, Michael!")
         self.screen = pygame.display.set_mode((self.width, self.height))
 
+        tile = pygame.image.load('one.png').convert()
+        for x in range(0, 16):
+            for y in range(0, 16):
+                self.screen.blit(tile, (x * 40, y * 40))
+        pygame.display.update()
+
     def start(self):
         while 1:
             for event in pygame.event.get():
