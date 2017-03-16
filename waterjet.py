@@ -12,11 +12,14 @@ class WaterJet:
         pygame.display.set_caption("Hi, Michael!")
         self.screen = pygame.display.set_mode((self.width, self.height))
 
+        self.draw_background()
+        pygame.display.update()
+
+    def draw_background(self):
         tile = pygame.image.load('one.png').convert()
         for x in range(0, 16):
             for y in range(0, 16):
                 self.screen.blit(tile, (x * 40, y * 40))
-        pygame.display.update()
 
     def start(self):
         tile = pygame.image.load('two.png').convert()
@@ -26,6 +29,7 @@ class WaterJet:
                 if event.type == pygame.QUIT:
                     sys.exit()
                 elif event.type == pygame.MOUSEMOTION:
+                    self.draw_background()
                     position = (event.pos[0] - 20, event.pos[1] - 20)
                     self.screen.blit(tile, position)
                 pygame.display.update()
