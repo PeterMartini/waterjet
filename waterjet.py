@@ -19,11 +19,15 @@ class WaterJet:
         pygame.display.update()
 
     def start(self):
+        tile = pygame.image.load('two.png').convert()
         while 1:
             for event in pygame.event.get():
                 print event
                 if event.type == pygame.QUIT:
                     sys.exit()
+                elif event.type == pygame.MOUSEMOTION:
+                    self.screen.blit(tile, event.pos)
+                pygame.display.update()
 
 if __name__ == "__main__":
     game = WaterJet()
