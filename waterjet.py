@@ -26,7 +26,8 @@ class WaterJet:
                 if event.type == pygame.QUIT:
                     sys.exit()
                 elif event.type == pygame.MOUSEMOTION:
-                    self.screen.blit(tile, event.pos)
+                    position = (event.pos[0] - 20, event.pos[1] - 20)
+                    self.screen.blit(tile, position)
                 pygame.display.update()
 
 if __name__ == "__main__":
